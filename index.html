@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery practice</title>
+    <!-- Подключения Link -->
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+  <p id="slide"></p>
+       <div class="header">
+           <div class="body-header">
+               <b>jQuery Practice </b>
+               <p id="main-nav-form" onclick="eventSlideDown()">&#9776</p>
+                   <aside class="right-nav">
+                       <p onclick="eventSlideUp()">X</p>
+                       
+                   </aside>
+           </div>
+               <div class="nav-header">
+                   <nav>
+                       
+                   </nav>
+               </div>
+       </div>
+       
+    <div id="container-main">
+        <div id="container-in-contain-body">
+           <div class="main-text">
+              <span> <p>Привет! Тут будет практика jQuery! </span> <br> Будут интересеные моменты , с разбором кода ! Моменты будут разбиты на карточки ! При нажатии на них будет выведен пример кода!</p>
+              <div class="input-contain">
+                  <label>Введите свое имя:</label>
+                  <input type="text" id="input-lab"> <br>
+                   <label>Введите пароль:</label>
+                  <input type="password" id="input-lab-two">
+              </div>
+        </div>
+    </div>
+    
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+    //Функция 1
+        $(document).ready(function(){
+        
+        //
+            console.log("Hello,world!");
+
+     $('#container-main').fadeOut(0).fadeIn(1000);
+ 
+ //Ширина , высота 
+            var w = $(window).width();
+            var h = $(window).height();
+            
+            console.log("ширина: " + w  + " высота: " + h);
+           //
+           
+//Получение значение инпута
+
+var valueN = $('#input-lab').value;
+var valueP = $('#input-lab-two').value;
+
+var value = valueN + valueP;
+        });
+
+//
+
+//Скрытие формы
+
+var formnav = $("#main-nav-form");
+
+var navRight = $(".right-nav").slideUp(0);
+    
+
+function eventSlideDown(event) {
+
+   console.log("Test!");
+   
+   $("#slide").css({
+       display:"block"
+   })
+   
+   navRight.slideDown(1000);
+}
+function eventSlideUp(event) {
+
+    navRight.slideUp(500);
+    
+     $("#slide").css({
+       display:"none"
+   })
+}
+
+//
+    </script>
+</body>
+</html>
